@@ -69,7 +69,6 @@
         }
         .toast-enter { animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         
-        /* Classe para borrar o vídeo quando for bloqueado (aumentei o blur para esconder melhor) */
         .video-locked { filter: blur(14px) brightness(0.6); transition: all 0.5s ease; }
 
         input[type=number]::-webkit-inner-spin-button, 
@@ -105,19 +104,18 @@
                 
                 <div class="absolute -bottom-10 left-4">
                     <div class="w-20 h-20 rounded-full border-4 border-white bg-gray-200 overflow-hidden relative shadow-sm">
-                        <img src="https://i.postimg.cc/BnPvV26x/IMG-0853.jpg" alt="Caroline" class="w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/BnPvV26x/IMG-0853.jpg" alt="Luana Vieira" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
 
             <div class="mt-12 px-4 pb-4 border-b border-of-border">
                 <div class="flex items-center gap-1">
-                    <h2 class="text-xl font-bold text-of-text tracking-tight">Caroline</h2>
+                    <h2 class="text-xl font-bold text-of-text tracking-tight">Luana Vieira</h2>
                     <i class="fa-solid fa-circle-check text-of-blue text-sm"></i>
                 </div>
-                <p class="text-of-gray text-sm">@Caroline</p>
+                <p class="text-of-gray text-sm">@luanavieira</p>
                 
-                <!-- Contadores para gerar Autoridade/Volume -->
                 <div class="flex gap-4 mt-2 text-sm font-semibold text-of-gray">
                     <span><i class="fa-solid fa-image text-of-blue"></i> 145 Fotos</span>
                     <span><i class="fa-solid fa-video text-of-blue"></i> 63 Vídeos</span>
@@ -128,7 +126,6 @@
                 </p>
             </div>
 
-            <!-- SEÇÃO DE PRÉVIAS (Gatilho da Amostra + Urgência) -->
             <div class="px-4 py-4 bg-gray-50 border-b border-of-border">
                 <div class="flex justify-between items-center mb-3">
                     <h3 class="text-sm font-bold text-of-text uppercase tracking-wider">Prévia do Conteúdo</h3>
@@ -136,7 +133,6 @@
                 </div>
                 
                 <div class="grid grid-cols-2 gap-2 mb-2">
-                    <!-- Video 1 -->
                     <div class="video-container relative rounded-lg overflow-hidden bg-black aspect-[3/4] group shadow-sm cursor-pointer">
                         <video class="preview-video w-full h-full object-cover" playsinline preload="metadata">
                             <source src="https://pub-165b12f7792f481faed1f61d81578b79.r2.dev/gravida1.mp4" type="video/mp4">
@@ -153,7 +149,6 @@
                         </div>
                     </div>
                     
-                    <!-- Video 2 -->
                     <div class="video-container relative rounded-lg overflow-hidden bg-black aspect-[3/4] group shadow-sm cursor-pointer">
                         <video class="preview-video w-full h-full object-cover" playsinline preload="metadata">
                             <source src="https://pub-165b12f7792f481faed1f61d81578b79.r2.dev/gravida2.mp4" type="video/mp4">
@@ -170,7 +165,6 @@
                         </div>
                     </div>
 
-                    <!-- Video 3 -->
                     <div class="video-container relative rounded-lg overflow-hidden bg-black aspect-[3/4] group shadow-sm cursor-pointer">
                         <video class="preview-video w-full h-full object-cover" playsinline preload="metadata">
                             <source src="https://pub-165b12f7792f481faed1f61d81578b79.r2.dev/gravida3.mp4" type="video/mp4">
@@ -187,7 +181,6 @@
                         </div>
                     </div>
 
-                    <!-- Video 4 -->
                     <div class="video-container relative rounded-lg overflow-hidden bg-black aspect-[3/4] group shadow-sm cursor-pointer">
                         <video class="preview-video w-full h-full object-cover" playsinline preload="metadata">
                             <source src="https://pub-165b12f7792f481faed1f61d81578b79.r2.dev/gravida4.mp4" type="video/mp4">
@@ -205,7 +198,6 @@
                     </div>
                 </div>
                 
-                <!-- Ilusão de Volume -->
                 <div class="mt-2 relative rounded-lg overflow-hidden bg-gray-200 h-20 flex items-center justify-center bg-[url('https://i.postimg.cc/BnPvV26x/IMG-0853.jpg')] bg-cover bg-center shadow-inner">
                     <div class="absolute inset-0 backdrop-blur-md bg-black/50"></div>
                     <div class="relative z-10 flex items-center justify-center gap-3">
@@ -219,7 +211,6 @@
             </div>
 
             <div class="px-4 py-5">
-                <!-- Banner Anonimato -->
                 <div class="bg-green-50 border border-green-200 rounded-xl p-3 mb-5 flex items-start gap-3 shadow-sm">
                     <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
                         <i class="fa-solid fa-user-secret text-green-600"></i>
@@ -230,59 +221,27 @@
                     </div>
                 </div>
 
-                <h3 class="text-sm font-semibold text-of-gray uppercase tracking-wider mb-3">Escolha seu pacote</h3>
+                <h3 class="text-sm font-semibold text-of-gray uppercase tracking-wider mb-3">Escolha seu acesso</h3>
                 
                 <div class="flex flex-col gap-3">
                     
-                    <!-- Pacote Básico -->
-                    <label class="relative flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-border bg-white" id="card-basic">
-                        <input type="radio" name="package" value="basic" class="peer hidden" onchange="updateSelection()">
-                        <div class="flex-1">
-                            <h4 class="font-bold text-base">Pacote Inicial</h4>
-                            <p class="text-xs text-of-gray mt-0.5">50 Fotos + 20 Vídeos.</p>
-                        </div>
-                        <div class="text-right pr-6">
-                            <span class="font-bold text-lg">R$ 14,99</span>
-                        </div>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 border-of-border flex items-center justify-center transition-all" id="check-basic">
-                            <i class="fa-solid fa-check text-white text-[10px] opacity-0" id="icon-basic"></i>
-                        </div>
-                    </label>
-
-                    <!-- Pacote Mensal (Premium) -->
-                    <label class="relative flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-blue bg-blue-50/50" id="card-premium">
-                        <input type="radio" name="package" value="premium" class="peer hidden" checked onchange="updateSelection()">
+                    <label class="relative flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-blue bg-blue-50/50" id="card-fixed">
+                        <input type="radio" name="package" value="fixed" class="peer hidden" checked onchange="updateSelection()">
                         <div class="absolute -top-2.5 left-4 bg-of-blue text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
-                            Mais Popular
+                            Acesso Único
                         </div>
                         <div class="flex-1">
-                            <h4 class="font-bold text-base">Acervo Completo</h4>
-                            <p class="text-xs text-of-gray mt-0.5">145 Fotos + 63 Vídeos sem censura.</p>
+                            <h4 class="font-bold text-base">Acervo VIP</h4>
+                            <p class="text-xs text-of-gray mt-0.5">Desbloqueio imediato de todo o conteúdo sem censura.</p>
                         </div>
                         <div class="text-right pr-6">
-                            <span class="font-bold text-lg text-of-blue">R$ 19,99</span>
+                            <span class="font-bold text-lg text-of-blue">R$ 9,99</span>
                         </div>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 border-of-blue bg-of-blue flex items-center justify-center transition-all" id="check-premium">
-                            <i class="fa-solid fa-check text-white text-[10px] opacity-100" id="icon-premium"></i>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 border-of-blue bg-of-blue flex items-center justify-center transition-all" id="check-fixed">
+                            <i class="fa-solid fa-check text-white text-[10px] opacity-100" id="icon-fixed"></i>
                         </div>
                     </label>
 
-                    <!-- Pacote Vitalício -->
-                    <label class="relative flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-border bg-white" id="card-vitalicio">
-                        <input type="radio" name="package" value="vitalicio" class="peer hidden" onchange="updateSelection()">
-                        <div class="flex-1">
-                            <h4 class="font-bold text-base">VIP + Inéditos 🌶️</h4>
-                            <p class="text-xs text-of-gray mt-0.5">Acervo Completo + 15 Vídeos Privados Exclusivos.</p>
-                        </div>
-                        <div class="text-right pr-6">
-                            <span class="font-bold text-lg">R$ 27,99</span>
-                        </div>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 border-of-border flex items-center justify-center transition-all" id="check-vitalicio">
-                            <i class="fa-solid fa-check text-white text-[10px] opacity-0" id="icon-vitalicio"></i>
-                        </div>
-                    </label>
-
-                    <!-- Custom / Mimo Card -->
                     <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-border bg-white" id="card-custom">
                         <div class="flex items-center w-full">
                             <input type="radio" name="package" value="custom" class="peer hidden" onchange="updateSelection()">
@@ -305,7 +264,6 @@
                 </div>
             </div>
 
-            <!-- Segurança -->
             <div class="flex flex-col items-center justify-center gap-2 text-xs text-of-gray pb-8 pt-2">
                 <div class="flex gap-4 mb-2">
                     <i class="fa-brands fa-pix text-2xl text-teal-500"></i>
@@ -315,15 +273,13 @@
             </div>
         </main>
 
-        <!-- CTA Fixo Rodapé -->
         <div class="absolute bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 shadow-up z-40">
             <button onclick="processCheckout()" class="w-full bg-of-blue hover:bg-of-darkBlue active:scale-[0.98] text-white rounded-full py-3.5 px-4 font-bold text-lg transition-all flex items-center justify-center gap-2 btn-pulse">
                 <i class="fa-brands fa-pix text-xl mr-1"></i>
-                <span id="cta-text">Pagar R$ 19,99 no PIX</span>
+                <span id="cta-text">Pagar R$ 9,99 no PIX</span>
             </button>
         </div>
 
-        <!-- Notificação Flutuante de Compra (Prova Social) -->
         <div id="social-proof" class="fixed top-4 right-4 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg rounded-xl p-3 flex items-center gap-3 z-50 hidden max-w-[280px]">
             <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
                 <i class="fa-solid fa-check text-lg"></i>
@@ -334,10 +290,8 @@
             </div>
         </div>
 
-        <!-- Overlay Modal PIX -->
         <div id="pix-modal-overlay" class="fixed inset-0 bg-black/60 z-50 hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm" onclick="closePixModal()"></div>
         
-        <!-- Bottom Sheet PIX Modal -->
         <div id="pix-modal" class="fixed bottom-0 left-0 w-full bg-white rounded-t-3xl z-50 hidden flex-col shadow-2xl max-h-[90vh] overflow-y-auto">
             
             <div class="flex justify-center p-3">
@@ -385,10 +339,8 @@
             </div>
         </div>
 
-        <!-- Overlay Back Redirect (Oferta de Saída) -->
         <div id="back-redirect-overlay" class="fixed inset-0 bg-black/80 z-[200] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm flex items-center justify-center p-4">
             <div class="bg-white rounded-[2rem] p-6 text-center max-w-sm w-full shadow-2xl scale-up relative overflow-hidden">
-                <!-- Efeito Decorativo -->
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-of-blue opacity-10 rounded-full blur-2xl"></div>
                 <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-of-blue opacity-10 rounded-full blur-2xl"></div>
 
@@ -401,8 +353,8 @@
                 <div class="bg-blue-50 border-2 border-dashed border-of-blue rounded-2xl p-4 mb-5 relative z-10">
                     <p class="text-xs text-of-gray uppercase font-bold tracking-wider mb-1">Acesso VIP Promocional</p>
                     <div class="flex items-center justify-center gap-3">
-                        <p class="text-gray-400 line-through font-semibold text-sm">R$ 14,99</p>
-                        <p class="text-3xl font-black text-of-blue tracking-tighter">R$ 9,99</p>
+                        <p class="text-gray-400 line-through font-semibold text-sm">R$ 9,99</p>
+                        <p class="text-3xl font-black text-of-blue tracking-tighter">R$ 4,99</p>
                     </div>
                 </div>
 
@@ -418,21 +370,19 @@
     </div>
 
     <script>
-        // Configurações PushinPay
         const PUSHINPAY_API_URL = 'https://api.pushinpay.com.br/api';
         const PUSHINPAY_TOKEN = '63870|0NFpiGh89fCg4FDeU7KnfqqqUdnEKvxeuZ4LLHGv13fd7d0c';
         
-        // Configurações Tracking HotTrack / Facebook
         const API_BASE_URL = 'https://novaapi-one.vercel.app';
         const HOTTRACK_API_KEY = "a0b2f4ce-2011-4faf-9e77-52e59bbcb02b"; 
         const PRESSEL_ID = 200;
         const PIXELS_TO_TRACK = [{ "id": "1817379038816925" }];
         
-        // Preços em Reais (R$)
-        const PRICES = { basic: 14.99, premium: 19.99, vitalicio: 27.99, discount: 9.99 };
-        const PACKAGES = ['basic', 'premium', 'vitalicio', 'custom'];
+        // Preços atualizados
+        const PRICES = { fixed: 9.99, discount: 4.99 };
+        const PACKAGES = ['fixed', 'custom'];
 
-        let currentPkg = 'premium';
+        let currentPkg = 'fixed';
         let pixPollingInterval = null;
         let currentTransactionId = null;
         let globalClickId = null;
@@ -442,7 +392,6 @@
         const isBot = () => /bot|facebook|crawler|spider|preview/i.test(navigator.userAgent);
         const getCookie = (name) => document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))?.[2] || null;
 
-        // --- FUNCIONALIDADE DOS VÍDEOS DE VISUALIZAÇÃO ÚNICA (NOVO FORMATO TEASER) ---
         function setupOneTimeVideos() {
             const containers = document.querySelectorAll('.video-container');
             
@@ -455,36 +404,31 @@
                 let isLocked = false;
                 
                 container.addEventListener('click', () => {
-                    // Se o vídeo já foi bloqueado, rola a tela para os preços instigando a compra
                     if (isLocked) {
-                        const pricingSection = document.getElementById('card-premium');
+                        const pricingSection = document.getElementById('card-fixed');
                         pricingSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         
-                        // Efeito de piscar no botão para chamar atenção
                         const ctaBtn = document.querySelector('.absolute.bottom-0 button');
                         ctaBtn.classList.remove('btn-pulse');
-                        void ctaBtn.offsetWidth; // trigger reflow
+                        void ctaBtn.offsetWidth; 
                         ctaBtn.classList.add('btn-pulse');
                         return;
                     }
 
-                    // Se é a primeira vez clicando
                     if (!hasPlayed) {
                         hasPlayed = true;
-                        playOverlay.classList.add('hidden'); // Esconde o botão de play
+                        playOverlay.classList.add('hidden'); 
                         
-                        // Tenta tocar o vídeo
                         const playPromise = video.play();
                         
                         if (playPromise !== undefined) {
                             playPromise.then(() => {
-                                // Exatamente 3 segundos de teaser!
                                 setTimeout(() => {
                                     video.pause();
-                                    video.classList.add('video-locked'); // Borra a imagem
-                                    lockedOverlay.classList.remove('hidden'); // Mostra o cadeado
+                                    video.classList.add('video-locked'); 
+                                    lockedOverlay.classList.remove('hidden'); 
                                     isLocked = true;
-                                }, 3000); // 3000 milissegundos = 3 segundos
+                                }, 3000); 
                             }).catch(error => {
                                 console.log("Autoplay evitado pelo navegador");
                             });
@@ -494,7 +438,6 @@
             });
         }
 
-        // --- FUNCIONALIDADE DE PROVA SOCIAL (Notificações) ---
         function initSocialProof() {
             const names = ['Lucas S.', 'Marcos A.', 'Felipe', 'Thiago R.', 'Matheus M.', 'Rodrigo', 'Gabriel', 'Junior', 'Pedro H.'];
             const popup = document.getElementById('social-proof');
@@ -507,16 +450,14 @@
                 popup.classList.remove('hidden');
                 popup.classList.add('toast-enter');
                 
-                // Esconde depois de 4 segundos
                 setTimeout(() => {
                     popup.classList.remove('toast-enter');
                     popup.classList.add('hidden');
                 }, 4000);
                 
-            }, 18000); // Aparece a cada 18 segundos
+            }, 18000); 
         }
 
-        // --- LÓGICA DE BACK REDIRECT (DESCONTO DE R$ 9,99) ---
         function initBackRedirect() {
             for (let i = 0; i < 5; i++) {
                 window.history.pushState({ page: 'retention' }, '', window.location.href);
@@ -540,7 +481,6 @@
             setTimeout(() => overlay.classList.replace('opacity-0', 'opacity-100'), 10);
             offerShown = true;
             
-            // Pausa qualquer vídeo tocando para forçar a atenção no desconto
             document.querySelectorAll('.preview-video').forEach(v => v.pause());
         }
 
@@ -573,7 +513,6 @@
             processCheckout(); 
         }
 
-        // --- TRACKING HOTTRACK / FACEBOOK ---
         async function registerClickAPI() {
             try {
                 const params = new URLSearchParams(window.location.search);
@@ -623,7 +562,6 @@
             }, 200);
         }
 
-        // --- LÓGICA DE PACOTES ---
         function handleCustomInput() {
             const brlInput = document.getElementById('input-brl');
             let val = parseFloat(brlInput.value);
@@ -635,7 +573,7 @@
 
         function updateSelection() {
             const selectedRadio = document.querySelector('input[name="package"]:checked');
-            currentPkg = selectedRadio ? selectedRadio.value : 'premium';
+            currentPkg = selectedRadio ? selectedRadio.value : 'fixed';
 
             PACKAGES.forEach(pkg => {
                 const card = document.getElementById(`card-${pkg}`);
@@ -687,7 +625,6 @@
             document.getElementById('pix-modal-total').innerText = `R$ ${brlPrice.toFixed(2).replace('.', ',')}`;
         }
 
-        // --- INTEGRAÇÃO PUSHINPAY (PIX) ---
         async function processCheckout() {
             const brlPrice = currentPkg === 'custom' ? customPriceBRL : PRICES[currentPkg];
             
@@ -834,7 +771,6 @@
             }, 10);
             document.body.style.overflow = 'hidden';
             
-            // Pausar vídeos caso o modal abra
             document.querySelectorAll('.preview-video').forEach(v => v.pause());
         }
 
@@ -851,7 +787,6 @@
                 modal.style.transform = '';
                 document.body.style.overflow = '';
                 
-                // Dispara a retenção se fechar o modal do PIX sem pagar
                 if (!offerShown) showBackRedirect();
             }, 300);
         }
@@ -867,13 +802,11 @@
             });
         }
 
-        // --- INICIALIZAÇÃO ---
         window.onload = () => {
             initTracking();
             updateSelection();
             setupOneTimeVideos();
             
-            // Inicia as notificações falsas após 5 segundos
             setTimeout(initSocialProof, 5000);
         };
     </script>
