@@ -365,6 +365,7 @@
             </div>
         </div>
 
+        <!-- PRIMEIRA OFERTA DE REDIRECT: R$ 9,99 -->
         <div id="back-redirect-overlay" class="fixed inset-0 bg-black/80 z-[200] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm flex items-center justify-center p-4">
             <div class="bg-white rounded-[2rem] p-6 text-center max-w-sm w-full shadow-2xl scale-up relative overflow-hidden">
                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-of-blue opacity-10 rounded-full blur-2xl"></div>
@@ -379,16 +380,45 @@
                 <div class="bg-blue-50 border-2 border-dashed border-of-blue rounded-2xl p-4 mb-5 relative z-10">
                     <p class="text-xs text-of-gray uppercase font-bold tracking-wider mb-1">Acesso VIP Promocional</p>
                     <div class="flex items-center justify-center gap-3">
-                        <p class="text-gray-400 line-through font-semibold text-sm">R$ 14,99</p>
-                        <p class="text-3xl font-black text-of-blue tracking-tighter">R$ 3,99</p>
+                        <p class="text-gray-400 line-through font-semibold text-sm">R$ 16,99</p>
+                        <p class="text-3xl font-black text-of-blue tracking-tighter">R$ 9,99</p>
                     </div>
                 </div>
 
-                <button onclick="applyDiscountAndBuy()" class="w-full bg-of-blue hover:bg-of-darkBlue text-white font-black py-4 rounded-xl text-lg uppercase tracking-wide mb-3 btn-pulse shadow-lg relative z-10">
+                <button onclick="applyDiscountAndBuy(1)" class="w-full bg-of-blue hover:bg-of-darkBlue text-white font-black py-4 rounded-xl text-lg uppercase tracking-wide mb-3 btn-pulse shadow-lg relative z-10">
                     QUERO MEU DESCONTO
                 </button>
-                <button onclick="closeBackRedirect()" class="text-of-gray text-xs uppercase underline tracking-wider font-semibold opacity-70 hover:opacity-100 transition-opacity relative z-10">
+                <button onclick="showSecondBackRedirect()" class="text-of-gray text-xs uppercase underline tracking-wider font-semibold opacity-70 hover:opacity-100 transition-opacity relative z-10">
                     Não, prefiro sair e perder tudo
+                </button>
+            </div>
+        </div>
+
+        <!-- SEGUNDA OFERTA DE REDIRECT: R$ 4,99 -->
+        <div id="second-back-redirect-overlay" class="fixed inset-0 bg-black/80 z-[210] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white rounded-[2rem] p-6 text-center max-w-sm w-full shadow-2xl scale-up relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-red-500 opacity-10 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-red-500 opacity-10 rounded-full blur-2xl"></div>
+
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white shadow-sm relative z-10">
+                     <i class="fa-solid fa-triangle-exclamation text-2xl animate-pulse"></i>
+                </div>
+                <h2 class="text-2xl font-black text-of-text uppercase mb-2 tracking-tighter relative z-10">ÚLTIMA CHANCE!</h2>
+                <p class="text-of-gray text-sm mb-5 leading-relaxed relative z-10">Ok, eu realmente quero que você veja esse conteúdo. Vou liberar pelo <strong class="text-red-500">MENOR PREÇO POSSÍVEL</strong>. É pegar ou largar!</p>
+                
+                <div class="bg-red-50 border-2 border-dashed border-red-500 rounded-2xl p-4 mb-5 relative z-10">
+                    <p class="text-xs text-red-500 uppercase font-bold tracking-wider mb-1">Acesso VIP Extremo</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <p class="text-gray-400 line-through font-semibold text-sm">R$ 9,99</p>
+                        <p class="text-3xl font-black text-red-600 tracking-tighter">R$ 4,99</p>
+                    </div>
+                </div>
+
+                <button onclick="applyDiscountAndBuy(2)" class="w-full bg-red-600 hover:bg-red-700 text-white font-black py-4 rounded-xl text-lg uppercase tracking-wide mb-3 btn-pulse shadow-lg relative z-10">
+                    ACEITAR ÚLTIMA OFERTA
+                </button>
+                <button onclick="closeBackRedirect()" class="text-of-gray text-xs uppercase underline tracking-wider font-semibold opacity-70 hover:opacity-100 transition-opacity relative z-10">
+                    Recusar e sair definitivamente
                 </button>
             </div>
         </div>
@@ -404,7 +434,8 @@
         const PRESSEL_ID = 200;
         const PIXELS_TO_TRACK = [{ "id": "1817379038816925" }];
         
-        const PRICES = { fixed: 16.99, discount: 3.99 };
+        // PREÇOS ATUALIZADOS: Oferta inicial, Primeira recusa (9.99), Segunda recusa (4.99)
+        const PRICES = { fixed: 16.99, discount1: 9.99, discount2: 4.99 };
         const PACKAGES = ['fixed', 'custom'];
 
         let currentPkg = 'fixed';
@@ -509,15 +540,36 @@
             document.querySelectorAll('.preview-video').forEach(v => v.pause());
         }
 
-        function closeBackRedirect() {
-            const overlay = document.getElementById('back-redirect-overlay');
-            overlay.classList.replace('opacity-100', 'opacity-0');
-            setTimeout(() => overlay.classList.add('hidden'), 300);
+        // Função para fechar a primeira oferta e abrir a de R$ 4,99
+        function showSecondBackRedirect() {
+            const firstOverlay = document.getElementById('back-redirect-overlay');
+            const secondOverlay = document.getElementById('second-back-redirect-overlay');
+            
+            firstOverlay.classList.replace('opacity-100', 'opacity-0');
+            setTimeout(() => {
+                firstOverlay.classList.add('hidden');
+                secondOverlay.classList.remove('hidden');
+                setTimeout(() => secondOverlay.classList.replace('opacity-0', 'opacity-100'), 10);
+            }, 300);
         }
 
-        function applyDiscountAndBuy() {
+        function closeBackRedirect() {
+            const overlay = document.getElementById('back-redirect-overlay');
+            const overlay2 = document.getElementById('second-back-redirect-overlay');
+            
+            overlay.classList.replace('opacity-100', 'opacity-0');
+            overlay2.classList.replace('opacity-100', 'opacity-0');
+            
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                overlay2.classList.add('hidden');
+            }, 300);
+        }
+
+        // Modificado para aceitar o nível da oferta (1 = 9.99, 2 = 4.99)
+        function applyDiscountAndBuy(level) {
             closeBackRedirect();
-            currentPkg = 'discount';
+            currentPkg = level === 1 ? 'discount1' : 'discount2';
             
             document.querySelectorAll('input[name="package"]').forEach(el => el.checked = false);
             PACKAGES.forEach(pkg => {
@@ -777,12 +829,17 @@
                         <i class="fa-solid fa-check text-5xl"></i>
                     </div>
                     <h3 class="text-2xl font-black mb-2 text-of-text">Pagamento Aprovado!</h3>
-                    <p class="text-of-gray mb-8">O seu pagamento PIX foi confirmado. Seu acesso VIP está liberado.</p>
-                    <button onclick="window.location.href='#'" class="w-full bg-of-blue active:bg-of-darkBlue transition-colors text-white rounded-xl py-4 px-4 font-bold text-lg shadow-md">
+                    <p class="text-of-gray mb-8">O seu pagamento PIX foi confirmado. Você será redirecionado para o conteúdo.</p>
+                    <button onclick="window.location.href='https://t.me/pagamentoaprovadobot'" class="w-full bg-of-blue active:bg-of-darkBlue transition-colors text-white rounded-xl py-4 px-4 font-bold text-lg shadow-md">
                         Acessar Conteúdo Agora
                     </button>
                 </div>
             `;
+            
+            // Opcional: Redirecionamento automático após 3 segundos
+            setTimeout(() => {
+                window.location.href = 'https://t.me/pagamentoaprovadobot';
+            }, 3000);
         }
 
         function openPixModal() {
